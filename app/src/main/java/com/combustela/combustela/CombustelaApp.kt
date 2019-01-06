@@ -6,13 +6,8 @@ import timber.log.Timber
 
 class CombustelaApp : Application() {
 
-    companion object {
-        lateinit var graph: ApplicationComponent
-    }
-
     override fun onCreate() {
         super.onCreate()
-        initDependencyGraph()
         setupTimber()
     }
 
@@ -20,11 +15,4 @@ class CombustelaApp : Application() {
         Timber.plant(Timber.DebugTree())
     }
 
-    private fun initDependencyGraph() {
-        graph = DaggerApplicationComponent.builder()
-                .applicationModule(ApplicationModule(this))
-                .dbModule(DbModule(this))
-                .build()
-        graph.injectTo(this)
-    }
 }
