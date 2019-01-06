@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.combustela.combustela.CombustelaApp
 import com.combustela.combustela.R
 import com.combustela.combustela.base.mvvm.BaseActivity
+import com.combustela.combustela.util.ext.observe
 import timber.log.Timber
 
 class MainActivity : BaseActivity<MainViewModel>() {
@@ -14,6 +15,16 @@ class MainActivity : BaseActivity<MainViewModel>() {
     override fun loadUp(savedInstanceState: Bundle?) {
         Timber.w("SUP")
         navigationController.verLinea("safsdf")
+
+
+        viewModel.lineas.observe(this) {
+            if (it != null) {
+                it.forEach {
+                    Timber.v("Linea $it")
+                }
+            }
+        }
+        viewModel.getLineas()
     }
 
     override fun inject() {
