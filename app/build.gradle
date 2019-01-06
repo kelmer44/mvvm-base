@@ -118,24 +118,15 @@ dependencies {
     implementation deps.play.mapsutils
     implementation deps.play.location
     implementation deps.play.places
-    implementation deps.geocoding
     implementation deps.locationrx
     implementation deps.permissionrx
 
-
-    implementation deps.firebase.core
-    implementation deps.firebase.messaging
 
     implementation deps.stetho.core
 
     implementation deps.timber
     debugImplementation deps.debugdb
-
     //==================== UI ====================
-    implementation deps.circleimageview
-    implementation deps.photoview
-    implementation 'com.googlecode.libphonenumber:libphonenumber:8.9.14'
-
 
     androidTestImplementation deps.espresso.core
     testImplementation deps.espresso.contrib
@@ -143,12 +134,6 @@ dependencies {
     androidTestImplementation deps.junit
     testImplementation deps.lifecycle.coretesting
 
-
-
-    //==================== Tools ====================
-    implementation 'org.jsoup:jsoup:1.10.1'
-    implementation 'com.airbnb.android:lottie:2.5.5'
-    implementation 'com.facebook.shimmer:shimmer:0.3.0'
 
     implementation(deps.crashlytics.core) {
         transitive = true

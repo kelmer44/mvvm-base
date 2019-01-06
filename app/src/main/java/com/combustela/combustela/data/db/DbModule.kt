@@ -9,12 +9,5 @@ import javax.inject.Singleton
 @Module
 class DbModule(val context: Context) {
 
-    @Provides
-    @Singleton
-    fun provideAppDatabase() : AppDatabase {
-        return Room.databaseBuilder(context,
-                AppDatabase::class.java, "combustela-database")
-                .build()
-    }
 
 }

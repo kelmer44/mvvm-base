@@ -122,16 +122,8 @@ ext {
                     'places'    : "com.google.android.gms:play-services-places:${versions.playServices}",
                     'authapi'   : "com.google.android.gms:play-services-auth-api-phone:${versions.playServices}"
             ],
-            'firebase'       : [
-                    'core'     : "com.google.firebase:firebase-core:${versions.playServices}",
-                    'config'   : "com.google.firebase:firebase-config:${versions.playServices}",
-                    'messaging': "com.google.firebase:firebase-messaging:17.3.2"
-            ],
             'locationrx'     : 'pl.charmas.android:android-reactive-location2:2.1@aar',
             'permissionrx'   : 'com.vanniktech:rxpermission:0.3.0',
-            'circleimageview': 'de.hdodenhof:circleimageview:2.2.0',
-            'geocoding'      : "com.google.maps:google-maps-services:0.2.10",
-            'photoview'      : "com.github.chrisbanes:PhotoView:${versions.photoViewVersion}",
     ]
 
 }
