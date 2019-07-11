@@ -3,6 +3,7 @@ package com.combustela.combustela.di.app
 import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
+import com.combustela.combustela.CombustelaApp
 import com.combustela.combustela.base.net.NetworkInteractor
 import com.combustela.combustela.base.net.NetworkInteractorImpl
 import com.combustela.combustela.base.scheduler.AppSchedulerProvider
@@ -14,11 +15,11 @@ import javax.inject.Singleton
 
 
 @Module(includes = [ViewModelModule::class])
-class ApplicationModule(val application: Application) {
+class ApplicationModule {
 
     @Provides
     @Singleton
-    fun application(): Application = application
+    fun application(app: CombustelaApp): Application = app
 
     @Provides
     fun provideNetworkInteractor(networkInteractor: NetworkInteractorImpl): NetworkInteractor = networkInteractor

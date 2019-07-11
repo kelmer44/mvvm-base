@@ -37,8 +37,4 @@ class MainActivity : BaseActivity<MainViewModel>() {
         }
     }
 
-    override fun inject() {
-        component.inject(this)
-    }
-
 }

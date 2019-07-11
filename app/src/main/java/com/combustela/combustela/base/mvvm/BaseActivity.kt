@@ -9,9 +9,10 @@ import android.support.v7.app.AppCompatActivity
 import com.combustela.combustela.CombustelaApp
 import com.combustela.combustela.base.NavigationController
 import com.combustela.combustela.di.controller.ControllerModule
+import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-abstract class BaseActivity<E : BaseViewModel> : AppCompatActivity() {
+abstract class BaseActivity<E : BaseViewModel> : DaggerAppCompatActivity() {
 
     protected lateinit var viewModel: E
 
@@ -24,26 +25,17 @@ abstract class BaseActivity<E : BaseViewModel> : AppCompatActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    val component by lazy {
-        (application as CombustelaApp)
-                .applicationComponent
-                .plus(
-                        ControllerModule(this)
-                )
-    }
 
 
     @CallSuper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        inject()
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(viewModelClass)
         setContentView(layoutId)
         loadUp(savedInstanceState)
     }
 
     abstract fun loadUp(savedInstanceState: Bundle?)
-    abstract fun inject()
 
 
 

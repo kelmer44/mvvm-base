@@ -11,8 +11,4 @@ class DetailActivity: BaseActivity<DetailViewModel>() {
     override fun loadUp(savedInstanceState: Bundle?) {
     }
 
-    override fun inject() {
-        component.inject(this)
-    }
-
 }
