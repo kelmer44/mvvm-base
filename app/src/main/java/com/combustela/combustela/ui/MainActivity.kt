@@ -1,9 +1,7 @@
 package com.combustela.combustela.ui
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.combustela.combustela.CombustelaApp
 import com.combustela.combustela.R
 import com.combustela.combustela.base.mvvm.BaseActivity
 import com.combustela.combustela.util.ext.isVisible
@@ -18,11 +16,11 @@ class MainActivity : BaseActivity<MainViewModel>() {
 
     override fun loadUp(savedInstanceState: Bundle?) {
         Timber.w("SUP")
-        navigationController.verLinea("safsdf")
 
 
         viewModel.lineas.observe(this) {
             progress_circular.isVisible = it?.inProgress ?: false
+
             when (it) {
                 is Result.Success -> {
                     Timber.v("Lineas ${it.data.size}")
@@ -33,6 +31,10 @@ class MainActivity : BaseActivity<MainViewModel>() {
             }
         }
         viewModel.getLineas()
+
+        detail_button.setOnClickListener {
+           navigationController.goDetail("1234")
+        }
     }
 
     override fun inject() {

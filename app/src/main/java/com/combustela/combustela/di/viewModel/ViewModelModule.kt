@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.combustela.combustela.ui.MainActivity
 import com.combustela.combustela.ui.MainViewModel
+import com.combustela.combustela.ui.detail.DetailViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -20,6 +21,14 @@ abstract class ViewModelModule {
     @ViewModelKey(MainViewModel::class)
     @Singleton
     internal abstract fun mainViewModel(viewModel: MainViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailViewModel::class)
+    @Singleton
+    internal abstract fun detailViewMoedl(viewModel: DetailViewModel): ViewModel
+
+
 
 
 }

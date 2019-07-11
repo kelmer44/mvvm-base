@@ -1,6 +1,7 @@
 package com.combustela.combustela.di.controller
 
 import com.combustela.combustela.ui.MainActivity
+import com.combustela.combustela.ui.detail.DetailActivity
 import dagger.Subcomponent
 
 
@@ -12,4 +13,5 @@ import dagger.Subcomponent
 )
 interface ControllerComponent {
     fun inject(dashboardActivity: MainActivity)
+    fun inject(dashboardActivity: DetailActivity)
 }
